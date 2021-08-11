@@ -1,0 +1,12 @@
+.navbar {
+  display: flex;
+  width: 100%;
+}
+
+.navbar-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+}
