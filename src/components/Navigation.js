@@ -8,16 +8,16 @@ const Navigation = () => {
 
   const navbarData = [
     {
-      name: "Homt",
-      path: "home",
+      name: "최신순",
+      path: "/",
     },
     {
-      name: "Homt",
-      path: "home",
+      name: "평점순",
+      path: "/rating",
     },
     {
-      name: "Homt",
-      path: "home",
+      name: "옵션",
+      path: "/option",
     },
   ];
 
@@ -29,8 +29,9 @@ const Navigation = () => {
             <li
               key={index}
               className="navbar-menu-item"
+              style={{ display: "block" }}
             >
-              {item.name}
+              <Link to={item.path}>{item.name}  </Link>
             </li>
           ))}
         </ul>

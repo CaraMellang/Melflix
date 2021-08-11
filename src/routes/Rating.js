@@ -1,18 +1,15 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import Movie from "../components/Movie";
 import Navigation from "../components/Navigation";
-import SignIn from "../components/SIgnIn";
-import SignUp from "../components/SignUp";
 import "./Home.css";
 
-const Home = () => {
+const Rating = () => {
   const [movieList, setMovieList] = useState([]);
 
   const getData = async () => {
     const data = await axios.get(
-      "https://yts-proxy.now.sh/list_movies.json?sort_by=year"
+      "https://yts-proxy.now.sh/list_movies.json?sort_by=rating"
     );
     console.log(data.data.data.movies);
     setMovieList(data.data.data.movies);
@@ -23,11 +20,9 @@ const Home = () => {
   }, []);
   return (
     <>
-      최신순!
+      평점순!
       <div>
         <Navigation />
-        <SignUp />
-        <SignIn />
         {movieList.map((data) => (
           <Movie
             key={data.id}
@@ -45,4 +40,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Rating;
