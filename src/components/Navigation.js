@@ -1,8 +1,10 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import media from "../lib/media";
 import "./Navigation.css";
+import { faCog } from "@fortawesome/free-solid-svg-icons";
 
 const Navigation = () => {
   const [sidebar, setSidebar] = useState(false);
@@ -18,33 +20,56 @@ const Navigation = () => {
       path: "/rating",
     },
     {
-      name: "Like",
-      path: "/like_count",
-    },
-    {
-      name: "Option",
-      path: "/option",
+      name: "Genres",
+      path: "/genres",
     },
   ];
 
   return (
-    <>
-      <nav className="navbar">
-        <ul className="navbar-menu">
-          {navbarData.map((item, index) => (
-            <li
-              key={index}
-              className="navbar-menu-item"
-              style={{ display: "block" }}
-            >
-              <Link to={item.path}>{item.name} </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </>
+    <nav className="navbar">
+      <ul className="navbar-menu">
+        {navbarData.map((item, index) => (
+          <li
+            key={index}
+            className="navbar-menu-item"
+            style={{ display: "block" }}
+          >
+            <NavbarItems to={item.path}>{item.name} </NavbarItems>
+          </li>
+        ))}
+        <li className="navbar-menu-item-option">
+          <Link to="/option">
+            <FontAwesomeIcon icon={faCog} />
+          </Link>
+        </li>
+      </ul>
+    </nav>
   );
 };
+
+const NavbarItems = styled(NavLink)`
+  font-size: 1.125rem;
+  font-weight: bold;
+  cursor: pointer;
+  /* white-space: pre; */
+  text-decoration: none;
+  color: inherit;
+  padding-bottom: 0.25rem;
+  &:hover {
+    color: #495057;
+  }
+  &.active {
+    font-weight: 600;
+    border-bottom: 2px solid #22b8cf;
+    color: #22b8cf;
+    &:hover {
+      color: #3bc9db;
+    }
+  }
+  & + & {
+    margin-left: 1rem;
+  }
+`;
 
 export const Navbarsexy = styled.nav`
   display: flex;

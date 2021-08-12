@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 import "./App.css";
 import Detail from "./routes/Detail";
 import Home from "./routes/Home";
-import LikeCount from "./routes/LikeCount";
+import Genres from "./routes/Genres";
 import Rating from "./routes/Rating";
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <GlobalStyled />
       <Route path="/" component={Home} exact={true} />
       <Route path="/rating" component={Rating} />
-      <Route path="/like_count" component={LikeCount} />
+      <Route path="/genres" component={Genres} />
       <Route path="/option" component={Home} />
       <Route path="/movie/:id" component={Detail} />
     </BrowserRouter>

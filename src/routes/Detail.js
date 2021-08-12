@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import media from "../lib/media";
+import Navigation from "../components/Navigation";
 
 const Detail = (props) => {
   const {
@@ -10,6 +11,7 @@ const Detail = (props) => {
 
   return (
     <>
+      <Navigation />
       <Main>
         <div className="pp">
           <img className="poster-img" src={state.poster} alt={state.title} />
