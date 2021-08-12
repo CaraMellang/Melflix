@@ -1,6 +1,8 @@
 .navbar {
   display: flex;
   width: 100%;
+  background-color: black;
+  justify-content: space-between;
 }
 
 .navbar-menu {
@@ -8,5 +10,17 @@
   flex-direction: row;
   justify-content: center;
   text-align: center;
+  text-decoration: none;
+  flex: auto;
+  gap: 5px;
+}
+
+.navbar .navbar-menu .navbar-menu-item a {
+  color: white;
+  text-decoration-line: none;
+}
+.navbar .navbar-menu .option a{
+  color: white;
+  text-decoration-line: none;
   text-decoration: none;
 }

@@ -3,16 +3,14 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Movie from "../components/Movie";
 import Navigation from "../components/Navigation";
-import SignIn from "../components/SIgnIn";
-import SignUp from "../components/SignUp";
 import "./Home.css";
 
-const Home = () => {
+const LikeCount = () => {
   const [movieList, setMovieList] = useState([]);
 
   const getData = async () => {
     const data = await axios.get(
-      "https://yts-proxy.now.sh/list_movies.json?sort_by=year&limit=30"
+      "https://yts-proxy.now.sh/list_movies.json?sort_by=like_count"
     );
     console.log(data.data.data.movies);
     setMovieList(data.data.data.movies);
@@ -23,10 +21,9 @@ const Home = () => {
   }, []);
   return (
     <>
-    <Navigation />
+      <Navigation />
+      좋아요순!
       <div className="hi">
-        <SignUp />
-        <SignIn />
         <div className="movies">
           {movieList.map((data) => (
             <Movie
@@ -46,4 +43,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default LikeCount;

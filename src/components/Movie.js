@@ -19,27 +19,16 @@ const Movie = ({ id, title, year, genres, rating, summary, poster }) => {
           },
         }}
       >
-        <img
-          src={poster}
-          alt={title}
-        />
-        <Content>
-          <Header>
-            <span>{id}</span>
-            <span>{title}</span>
-            <span>{year}</span>
-            <span>{rating}</span>
-          </Header>
-          <ul style={{ padding: 0 }}>
-            {genres.map((genres, index) => (
-              <li key={index} style={{ display: "block" }}>
-                {genres}
-              </li>
-            ))}
-          </ul>
-          <br />
-          <p>{summary.slice(0, 150)}...</p>
-        </Content>
+        <div>
+          <img src={poster} alt={title} />
+          <Content>
+            <Header>
+              <span style={{ fontSize: "13px" }}>{title.slice(0, 15)}</span>
+              <span>{year}</span>
+              <span>{rating}</span>
+            </Header>
+          </Content>
+        </div>
       </Wraper>
     </>
   );
@@ -47,9 +36,8 @@ const Movie = ({ id, title, year, genres, rating, summary, poster }) => {
 
 const Wraper = styled(Link)`
   display: flex;
-  flex-direction: row;
-  border: 1px solid;
-  width: 400px;
+  flex-direction: column;
+  border: 1px solid none;
   border-radius: 5px;
   span {
     margin: 0;
@@ -61,6 +49,7 @@ const Wraper = styled(Link)`
 `;
 const Content = styled.div`
   display: flex;
+  flex-direction: column;
   p {
     justify-content: center;
     text-align: center;
