@@ -7,32 +7,14 @@ const Detail = (props) => {
     location: { state },
   } = props;
   console.log(state);
-  const Main = styled.div`
-    display: flex;
-    .pp {
-      width: 30%;
-    }
-    .back-img {
-      padding: 30px;
-      height: 100%;
-      background-image: url(${state.poster});
-      background-repeat: no-repeat;
-      border-radius: 5px;
-    }
 
-    ${media.small} {
-      flex-direction: column;
-      width: 100%;
-      align-items: center;
-    }
-  `;
   return (
     <>
       <Main>
         <div className="pp">
-          <div className="back-img"></div>
+          <img className="poster-img" src={state.poster} alt={state.title} />
         </div>
-        <div>
+        <div className="content">
           <h1>{state.title}</h1>
           <p>{state.summary}</p>
         </div>
@@ -40,5 +22,30 @@ const Detail = (props) => {
     </>
   );
 };
+const Main = styled.div`
+  display: flex;
+  color: white;
+  align-items: center;
+  height: 100%;
+  .pp {
+    padding: 2rem;
+  }
+  .content {
+    padding: 5rem;
+  }
+  .poster-img {
+    width: 20rem;
+    border: 1px solid none;
+    border-radius: 5px;
+  }
 
+  ${media.small} {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    .content {
+      padding: 2rem;
+    }
+  }
+`;
 export default Detail;

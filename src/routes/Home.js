@@ -23,10 +23,9 @@ const Home = () => {
   }, []);
   return (
     <>
-    <Navigation />
+      <Navigation />
       <div className="hi">
-        <SignUp />
-        <SignIn />
+        <span style={{ color: "white" }}>New</span>
         <div className="movies">
           {movieList.map((data) => (
             <Movie
