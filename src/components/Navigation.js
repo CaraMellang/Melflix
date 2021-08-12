@@ -34,7 +34,14 @@ const Navigation = () => {
             className="navbar-menu-item"
             style={{ display: "block" }}
           >
-            <NavbarItems to={item.path}>{item.name} </NavbarItems>
+            <NavbarItems
+              activeClassName="active"
+              exact={item.name === "New"}
+              //exact 안쓰면 New카테고리가 색이 고정됨
+              to={item.path}
+            >
+              {item.name}
+            </NavbarItems>
           </li>
         ))}
         <li className="navbar-menu-item-option">
@@ -51,7 +58,7 @@ const NavbarItems = styled(NavLink)`
   font-size: 1.125rem;
   font-weight: bold;
   cursor: pointer;
-  /* white-space: pre; */
+  white-space: pre;
   text-decoration: none;
   color: inherit;
   padding-bottom: 0.25rem;

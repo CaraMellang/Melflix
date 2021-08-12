@@ -11,9 +11,8 @@
 }
 
 .navbar-menu-item {
-  color: white;
-  text-decoration-line: none;
   margin-left: 30px;
+  color: white;
 }
 .navbar-menu-item-option {
   display: block;
