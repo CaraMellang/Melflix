@@ -9,6 +9,7 @@ import "./Home.css";
 
 const Home = () => {
   const [movieList, setMovieList] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const getData = async () => {
     const data = await axios.get(
@@ -16,31 +17,39 @@ const Home = () => {
     );
     console.log(data.data.data.movies);
     setMovieList(data.data.data.movies);
+    setLoading(false);
   };
 
   useEffect(() => {
     getData();
+    return () => {
+      console.log("취소됨.");
+    };
   }, []);
   return (
     <>
       <Navigation />
-      <div className="hi">
-        <span style={{ color: "white" }}>New</span>
-        <div className="movies">
-          {movieList.map((data) => (
-            <Movie
-              key={data.id}
-              id={data.id}
-              title={data.title}
-              year={data.year}
-              genres={data.genres}
-              rating={data.rating}
-              summary={data.summary}
-              poster={data.large_cover_image}
-            />
-          ))}
+      {loading === true ? (
+        <span style={{ color: "white" }}>로딩중...</span>
+      ) : (
+        <div className="hi">
+          <span style={{ color: "white" }}>New</span>
+          <div className="movies">
+            {movieList.map((data) => (
+              <Movie
+                key={data.id}
+                id={data.id}
+                title={data.title}
+                year={data.year}
+                genres={data.genres}
+                rating={data.rating}
+                summary={data.summary}
+                poster={data.large_cover_image}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </>
   );
 };
