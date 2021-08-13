@@ -45,11 +45,11 @@ const Navigation = () => {
             </NavbarItems>
           </li>
         ))}
-        <li className="navbar-menu-item-option">
+        {/* <li className="navbar-menu-item-option">
           <Link to="/option">
             <FontAwesomeIcon icon={faCog} />
           </Link>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );

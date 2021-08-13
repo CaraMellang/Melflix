@@ -13,22 +13,28 @@ const Genres = () => {
   const [loading, setLoading] = useState(true);
   const [activeId, setActiveId] = useState(0);
 
-  const getData = async (genresName) => {
-    const genresData = await axios.get(
-      `https://yts-proxy.now.sh/list_movies.json?genre=${genresName}&limit=30`
-    );
-    console.log(genresData.data.data.movies);
-    setMovieList(genresData.data.data.movies);
-    setLoading(false);
-  };
-
   const onClick = (e) => {
     // console.log(e.target.attributes.getNamedItem("name").value);
     // console.log(e.target.getAttribute("name"));
     //input button태그와 다르게 e.target.name으로 접근 안됨 위에 두 방식으로도 가능
-    setGenresName(e.target.getAttribute("name"));
-    setActiveId(parseInt(e.target.getAttribute("id")));
+
     setLoading(true);
+    setActiveId(parseInt(e.target.getAttribute("id")));
+    setGenresName(e.target.getAttribute("name"));
+    console.log(e.target.getAttribute("name"));
+    //컴포넌트가 리렌더링되어 렌더링이 끝나지 않을 때 null값을 반환하는 이슈가 있음
+  };
+
+  const getData = async (genresName) => {
+    if (genresName === null) {
+      return;
+    }
+    const genresData = await axios.get(
+      `https://yts-proxy.now.sh/list_movies.json?genre=${genresName}&limit=10`
+    );
+    console.log(genresData.data.data.movies);
+    setMovieList(genresData.data.data.movies);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -41,17 +47,19 @@ const Genres = () => {
     <>
       <div className="sidebar">
         <div className="sidebar-tag">
-          {genreList.map((item, index) => (
-            <div
-              key={index}
-              id={index}
-              name={item.value}
-              className={`tag-box ${activeId === index && "active"}`}
-              onClick={onClick}
-            >
-              <p className="tag-box-contents">{item.name}</p>
-            </div>
-          ))}
+          {genreList.map((item, index) => {
+            return (
+              <div
+                key={index}
+                id={index}
+                name={item.value}
+                className={`tag-box ${activeId === index && "actives"}`}
+                onClick={onClick}
+              >
+                <p className="tag-box-contents">{item.name}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
       <div className="container">
@@ -148,4 +156,4 @@ const genreList = [
   },
 ];
 
-export default Genres;
+export default React.memo(Genres);
