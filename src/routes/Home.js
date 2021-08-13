@@ -28,7 +28,6 @@ const Home = () => {
   }, []);
   return (
     <>
-      <Navigation />
       {loading === true ? (
         <span style={{ color: "white" }}>로딩중...</span>
       ) : (

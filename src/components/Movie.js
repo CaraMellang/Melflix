@@ -27,7 +27,7 @@ const Movie = ({ id, title, year, genres, rating, summary, poster }) => {
           <Content>
             <Header>
               <span style={{ fontSize: "13px" }}>
-                {title.slice(15, 30) !== ""
+                {title.slice(15) !== ""
                   ? `${title.slice(0, 15)}...`
                   : title.slice(0, 15)}
               </span>

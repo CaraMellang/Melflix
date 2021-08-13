@@ -38,6 +38,7 @@ const Navigation = () => {
               activeClassName="active"
               exact={item.name === "New"}
               //exact 안쓰면 New카테고리가 색이 고정됨
+              //https://velog.io/@ksh4820/React-NavLink
               to={item.path}
             >
               {item.name}
@@ -67,10 +68,10 @@ const NavbarItems = styled(NavLink)`
   }
   &.active {
     font-weight: 600;
-    border-bottom: 2px solid #22b8cf;
-    color: #22b8cf;
+    border-bottom: 2px solid #cc8330;
+    color: #cc8330;
     &:hover {
-      color: #3bc9db;
+      color: #b66810;
     }
   }
   & + & {
