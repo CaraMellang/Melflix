@@ -2,8 +2,7 @@ import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Movie from "../components/Movie";
-import Navigation from "../components/Navigation";
-import Detail from "./Detail";
+import GenreList from "../lib/GenreList";
 import "./Home.css";
 import "./Genres.css";
 
@@ -19,9 +18,11 @@ const Genres = () => {
     //input button태그와 다르게 e.target.name으로 접근 안됨 위에 두 방식으로도 가능
 
     setLoading(true);
-    setActiveId(parseInt(e.target.getAttribute("id")));
-    setGenresName(e.target.getAttribute("name"));
-    console.log(e.target.getAttribute("name"));
+    setActiveId(parseInt(e.target.id));
+    setGenresName(e.target.name);
+    // setActiveId(parseInt(e.target.getAttribute("id"))); 특수한 경우에만 getAttributes쓸것.
+    // setGenresName(e.target.getAttribute("name"));
+    // console.log(e.target.getAttribute("name"));
     //컴포넌트가 리렌더링되어 렌더링이 끝나지 않을 때 null값을 반환하는 이슈가 있음
   };
 
@@ -44,20 +45,21 @@ const Genres = () => {
     };
   }, [genresName]);
   return (
-    <>
+    <Wrapper>
       <div className="sidebar">
         <div className="sidebar-tag">
-          {genreList.map((item, index) => {
+          {GenreList.map((item, index) => {
             return (
-              <div
+              <button
                 key={index}
                 id={index}
                 name={item.value}
                 className={`tag-box ${activeId === index && "actives"}`}
                 onClick={onClick}
               >
-                <p className="tag-box-contents">{item.name}</p>
-              </div>
+                {item.name}
+                {/* <p className="tag-box-contents">{item.name}</p> */}
+              </button>
             );
           })}
         </div>
@@ -86,76 +88,48 @@ const Genres = () => {
           )}
         </div>
       </div>
-    </>
+    </Wrapper>
   );
 };
 
-const genreList = [
-  {
-    id: 1,
-    name: "ALL",
-    value: "all",
-  },
-  {
-    id: 2,
-    name: "COMEDY",
-    value: "comedy",
-  },
-  {
-    id: 3,
-    name: "SCI-FI",
-    value: "sci-fi",
-  },
-  {
-    id: 4,
-    name: "HORROR",
-    value: "horror",
-  },
-  {
-    id: 5,
-    name: "ROMANCE",
-    value: "romance",
-  },
-  {
-    id: 6,
-    name: "ACTION",
-    value: "action",
-  },
-  {
-    id: 7,
-    name: "THRILLER",
-    value: "thriller",
-  },
-  {
-    id: 8,
-    name: "DRAMA",
-    value: "drama",
-  },
-  {
-    id: 9,
-    name: "MYSTERY",
-    value: "mystery",
-  },
-  {
-    id: 10,
-    name: "CRIME",
-    value: "crime",
-  },
-  {
-    id: 11,
-    name: "ANIMATION",
-    value: "animation",
-  },
-  {
-    id: 12,
-    name: "ADVENTURE",
-    value: "adventure",
-  },
-  {
-    id: 13,
-    name: "FANTASY",
-    value: "fantasy",
-  },
-];
+const Wrapper = styled.div`
+  .sidebar {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background-color: #242424;
+    width: 10rem;
+    margin-top: 3.5rem;
+    border: 1px solid #242424;
+    border-radius: 0 0 5px 5px;
+  }
+
+  .sidebar-tag {
+    display: flex;
+    text-align: start;
+    flex-direction: column;
+  }
+  .tag-box {
+    width: 10rem;
+    height: 3.5rem;
+    font-weight: 1000;
+    background-color: #3d3d3d;
+    border: 1px solid #3d3d3d;
+  }
+  .tag-box:hover {
+    padding-left: 0;
+    transition: all 0.4s;
+    background-color: #555555;
+    color: #cc8330;
+  }
+
+  .tag-box-contents {
+    padding-left: 2rem;
+  }
+
+  .actives {
+    background-color: #cc8330;
+  }
+`;
 
 export default React.memo(Genres);
