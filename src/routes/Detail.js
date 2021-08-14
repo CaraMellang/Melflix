@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import media from "../lib/media";
 import "./Detail.css";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { fas, faStar } from "@fortawesome/free-solid-svg-icons";
 
 const Detail = (props) => {
   const {
@@ -25,32 +25,71 @@ const Detail = (props) => {
             </div>
             <div className="header-contents-details">
               <div className="header-details-above">
-                <h1 style={{ borderBottom: "1px solid white" }}>
-                  {state.title}
+                <h1 className="above-title">
+                  {state.title} ({state.year})
                 </h1>
                 <div className="header-year-genres">
-                  <h2>{state.year}</h2>
-                  <h2 className="header-genres">
-                    {state.genres.map((item) => (
-                      <p>{item}</p>
+                  <div>-Genres</div>
+                  <div
+                    className="header-genres"
+                    style={{ paddingLeft: "1rem" }}
+                  >
+                    {state.genres.map((item, index) => (
+                      <p key={index}>{item}</p>
                     ))}
-                  </h2>
+                  </div>
                 </div>
               </div>
               <div className="header-details-Below">
+                <div
+                  className="header-runtime-block"
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "0.5rem",
+                  }}
+                >
+                  <div className="header-runtime-title">-Total Runtime</div>
+                  <div
+                    className="header-runtime-total"
+                    style={{ paddingLeft: "1rem", paddingBottom: "0.5rem" }}
+                  >
+                    {state.runtime} Hours
+                  </div>
+                </div>
                 <div className="header-details-average">
-                  <div style={{ marginBottom: "1rem" }}>Rating</div>
-                  <div>{state.rating}</div>
+                  <div style={{ marginBottom: "1rem" }}>-Rating</div>
+                  <div
+                    style={{
+                      paddingLeft: "1rem",
+                    }}
+                  >
+                    <FontAwesomeIcon
+                      icon={faStar}
+                      style={{ color: "#f7cf1e" }}
+                    />
+                    {state.rating}
+                  </div>
                 </div>
                 <div className="header-details-stars"></div>
               </div>
             </div>
           </div>
         </section>
-        <div className="content">
+        <section className="content">
+          <div className="content-description">
+            <h1
+              style={{
+                borderBottom: "1px solid black",
+                paddingBottom: "0.5rem",
+              }}
+            >
+              Description
+            </h1>
+          </div>
           <p>{state.description}</p>
           <p>{state.summary}</p>
-        </div>
+        </section>
       </Main>
     </>
   );
@@ -61,9 +100,61 @@ const Main = styled.div`
   color: white;
   align-items: center;
   height: 100%;
-  .content {
-    padding: 5rem;
+  .header-block {
+    padding-top: 6em;
+    padding-bottom: 3em;
   }
+
+  .header-contents {
+    display: flex;
+    margin: 0 auto;
+    width: 1184px;
+    background-color: #181818;
+  }
+  .above-title {
+    border-bottom: 1px solid white;
+    margin-top: 4rem;
+    font-size: 2.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .header-contents-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0%;
+    justify-content: space-between;
+    margin-left: 6rem;
+    padding-bottom: 3rem;
+  }
+
+  .header-year-genres {
+    display: flex;
+    font-size: 1.5rem;
+    font-weight: bold;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .header-genres {
+    display: flex;
+    gap: 1rem;
+  }
+  .content {
+    background-color: #9e9e9e;
+    color: #181818;
+    font-weight: bold;
+    padding: 5rem;
+    padding-top: 0;
+  }
+  .content-description {
+    padding-top: 3rem;
+  }
+  .header-details-Below {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  /*align-items는 justify와는 반대로 세로를 기준으로 정렬함*/
+
   .poster-img {
     width: 20rem;
     border: 1px solid none;
@@ -76,6 +167,29 @@ const Main = styled.div`
     align-items: center;
     .content {
       padding: 2rem;
+    }
+
+    .header-contents {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    .header-contents-details {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 0%;
+      justify-content: space-between;
+      margin-left: 2rem;
+      padding-bottom: 1rem;
+    }
+
+    .above-title {
+      margin-top: 2rem;
+      margin-right: 0.5rem;
+    }
+    .content-description {
+      padding-top: 0.5rem;
     }
   }
 `;

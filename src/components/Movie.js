@@ -15,6 +15,7 @@ const Movie = ({
   summary,
   poster,
   description,
+  runtime,
 }) => {
   return (
     <>
@@ -29,6 +30,7 @@ const Movie = ({
             summary,
             poster,
             description,
+            runtime,
           },
         }}
       >

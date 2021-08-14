@@ -40,6 +40,7 @@ const Rating = () => {
                 rating={data.rating}
                 summary={data.summary}
                 description={data.description_full}
+                runtime={data.runtime}
                 poster={data.large_cover_image}
               />
             ))}
