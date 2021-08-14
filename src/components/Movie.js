@@ -6,7 +6,16 @@ import media from "../lib/media";
 import { fas, faStar } from "@fortawesome/free-solid-svg-icons";
 import { yellow } from "chalk";
 
-const Movie = ({ id, title, year, genres, rating, summary, poster }) => {
+const Movie = ({
+  id,
+  title,
+  year,
+  genres,
+  rating,
+  summary,
+  poster,
+  description,
+}) => {
   return (
     <>
       <Wraper
@@ -19,6 +28,7 @@ const Movie = ({ id, title, year, genres, rating, summary, poster }) => {
             rating,
             summary,
             poster,
+            description,
           },
         }}
       >

@@ -43,6 +43,7 @@ const Home = () => {
                 genres={data.genres}
                 rating={data.rating}
                 summary={data.summary}
+                description={data.description_full}
                 poster={data.large_cover_image}
               />
             ))}

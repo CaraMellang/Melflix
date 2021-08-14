@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import media from "../lib/media";
 import "./Detail.css";
-import { fas, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const Detail = (props) => {
   const {
@@ -25,19 +25,30 @@ const Detail = (props) => {
             </div>
             <div className="header-contents-details">
               <div className="header-details-above">
-                <h1>{state.title}</h1>
+                <h1 style={{ borderBottom: "1px solid white" }}>
+                  {state.title}
+                </h1>
+                <div className="header-year-genres">
+                  <h2>{state.year}</h2>
+                  <h2 className="header-genres">
+                    {state.genres.map((item) => (
+                      <p>{item}</p>
+                    ))}
+                  </h2>
+                </div>
               </div>
               <div className="header-details-Below">
-                평점
-                <div className="header-details-average">{state.rating}</div>
-                <div className="header-details-stars">
-                  <FontAwesomeIcon icon={faStar} />
+                <div className="header-details-average">
+                  <div style={{ marginBottom: "1rem" }}>Rating</div>
+                  <div>{state.rating}</div>
                 </div>
+                <div className="header-details-stars"></div>
               </div>
             </div>
           </div>
         </section>
         <div className="content">
+          <p>{state.description}</p>
           <p>{state.summary}</p>
         </div>
       </Main>
@@ -54,7 +65,7 @@ const Main = styled.div`
     padding: 5rem;
   }
   .poster-img {
-    width: 15rem;
+    width: 20rem;
     border: 1px solid none;
     border-radius: 5px;
   }

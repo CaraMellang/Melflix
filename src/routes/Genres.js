@@ -78,6 +78,7 @@ const Genres = () => {
                   rating={data.rating}
                   summary={data.summary}
                   poster={data.large_cover_image}
+                  description={data.description_full}
                 />
               ))}
             </div>
