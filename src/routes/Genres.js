@@ -5,6 +5,9 @@ import Movie from "../components/Movie";
 import GenreList from "../lib/GenreList";
 import "./Home.css";
 import "./Genres.css";
+import media from "../lib/media";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHamburger } from "@fortawesome/free-solid-svg-icons";
 
 const Genres = () => {
   const [movieList, setMovieList] = useState([]);
@@ -23,7 +26,7 @@ const Genres = () => {
     // setActiveId(parseInt(e.target.getAttribute("id"))); 특수한 경우에만 getAttributes쓸것.
     // setGenresName(e.target.getAttribute("name"));
     // console.log(e.target.getAttribute("name"));
-    //컴포넌트가 리렌더링되어 렌더링이 끝나지 않을 때 null값을 반환하는 이슈가 있음
+    //컴포넌트가 리렌더링되어 렌더링이 끝나지 않을 때 null값을 반환하는 이슈가 있음 <- 정확하지않음
   };
 
   const getData = async (genresName) => {
@@ -47,6 +50,12 @@ const Genres = () => {
   return (
     <Wrapper>
       <div className="sidebar">
+        <div className="sidebar-mobile-tagmenu">
+          <div className="sidebar-mobile-name">태그</div>
+          <div className="sidebar-mobile-hamburger">
+            <FontAwesomeIcon icon={faHamburger} />
+          </div>
+        </div>
         <div className="sidebar-tag">
           {GenreList.map((item, index) => {
             return (
@@ -65,7 +74,7 @@ const Genres = () => {
         </div>
       </div>
       <div className="container">
-        <div className="hi" style={{ marginLeft: "10rem" }}>
+        <div className="hi">
           {loading === true ? (
             ""
           ) : (
@@ -95,10 +104,7 @@ const Genres = () => {
 const Wrapper = styled.div`
   .sidebar {
     position: fixed;
-    display: flex;
-    flex-direction: column;
     background-color: #242424;
-    width: 10rem;
     margin-top: 3.5rem;
     border: 1px solid #242424;
     border-radius: 0 0 5px 5px;
@@ -127,8 +133,52 @@ const Wrapper = styled.div`
     padding-left: 2rem;
   }
 
+  .hi {
+    margin-left: 10rem;
+  }
+
   .actives {
     background-color: #cc8330;
+  }
+
+  ${media.medium} {
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+    }
+    .sidebar-tag {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    .tag-box {
+      width: 50%;
+    }
+    .hi {
+      margin-left: 0;
+    }
+    .movies {
+      padding-left: 2.5%;
+      padding-right: 2.5%;
+    }
+    ${media.small} {
+      .movies {
+      }
+    }
+    ${media.xsmall} {
+      .sidebar-mobile-tagmenu {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        height: 2rem;
+        align-items: center;
+      }
+      .movies {
+        padding-left: 2%;
+        padding-right: 2%;
+        gap: 5px;
+      }
+    }
   }
 `;
 
