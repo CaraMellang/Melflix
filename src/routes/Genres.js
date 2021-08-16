@@ -80,18 +80,20 @@ const Genres = () => {
           ) : (
             <div className="movies">
               {movieList.map((data) => (
-                <Movie
-                  key={data.id}
-                  id={data.id}
-                  title={data.title}
-                  year={data.year}
-                  genres={data.genres}
-                  rating={data.rating}
-                  summary={data.summary}
-                  poster={data.large_cover_image}
-                  description={data.description_full}
-                  runtime={data.runtime}
-                />
+                <div className="movie-item">
+                  <Movie
+                    key={data.id}
+                    id={data.id}
+                    title={data.title}
+                    year={data.year}
+                    genres={data.genres}
+                    rating={data.rating}
+                    summary={data.summary}
+                    poster={data.large_cover_image}
+                    description={data.description_full}
+                    runtime={data.runtime}
+                  />
+                </div>
               ))}
             </div>
           )}
@@ -108,6 +110,9 @@ const Wrapper = styled.div`
     margin-top: 3.5rem;
     border: 1px solid #242424;
     border-radius: 0 0 5px 5px;
+  }
+  .sidebar-mobile-tagmenu {
+    display: none;
   }
 
   .sidebar-tag {
@@ -146,6 +151,14 @@ const Wrapper = styled.div`
       display: flex;
       flex-direction: column;
     }
+    .sidebar-mobile-tagmenu {
+      display: flex;
+      justify-content: space-between;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      height: 2rem;
+      align-items: center;
+    }
     .sidebar-tag {
       flex-direction: row;
       flex-wrap: wrap;
@@ -159,9 +172,19 @@ const Wrapper = styled.div`
     .movies {
       padding-left: 2.5%;
       padding-right: 2.5%;
+      gap: 2.5rem;
     }
     ${media.small} {
+      .sidebar-mobile-tagmenu {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        height: 2rem;
+        align-items: center;
+      }
       .movies {
+        gap: 2rem;
       }
     }
     ${media.xsmall} {
