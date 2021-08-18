@@ -81,18 +81,18 @@ const Genres = () => {
             <div className="movies">
               {movieList.map((data) => (
                 <div className="movie-item">
-                  <Movie
-                    key={data.id}
-                    id={data.id}
-                    title={data.title}
-                    year={data.year}
-                    genres={data.genres}
-                    rating={data.rating}
-                    summary={data.summary}
-                    poster={data.large_cover_image}
-                    description={data.description_full}
-                    runtime={data.runtime}
-                  />
+                    <Movie
+                      key={data.id}
+                      id={data.id}
+                      title={data.title}
+                      year={data.year}
+                      genres={data.genres}
+                      rating={data.rating}
+                      summary={data.summary}
+                      poster={data.large_cover_image}
+                      description={data.description_full}
+                      runtime={data.runtime}
+                    />
                 </div>
               ))}
             </div>
@@ -144,6 +144,13 @@ const Wrapper = styled.div`
 
   .actives {
     background-color: #cc8330;
+  }
+
+  ${media.xxlarge} {
+    .movie-item {
+      margin: 1.25rem 2rem;
+      width: calc((100% - 16rem) / 4);
+    }
   }
 
   ${media.medium} {

@@ -34,7 +34,7 @@ const Movie = ({
           },
         }}
       >
-        <div>
+        <div className="item-contents">
           <img src={poster} alt={title} />
           <Content>
             <Header>
@@ -66,9 +66,11 @@ const Wraper = styled(Link)`
   }
   img {
     max-width: 150px;
-    width: 100%;
     border: 1px solid none;
     border-radius: 5px;
+  }
+  .item-contents {
+    text-align: center;
   }
 `;
 const Content = styled.div`
