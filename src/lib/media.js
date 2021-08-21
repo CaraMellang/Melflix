@@ -1,12 +1,12 @@
 export const mediaQuery = (maxWidth) => `@media(max-width: ${maxWidth}px)`;
 
 const media = {
-  xxlarge: mediaQuery(1440),
-  xlarge: mediaQuery(1024),
-  large: mediaQuery(1200),
-  medium: mediaQuery(768),
-  small: mediaQuery(375),
-  xsmall: mediaQuery(320),
+  xlarge: mediaQuery(1440),// Laptop L
+  large: mediaQuery(1024),// laptop
+  medium: mediaQuery(768),// Tablet
+  small: mediaQuery(425),// Mobile L
+  xsmall: mediaQuery(375),// Mobile M
+  xxsmall: mediaQuery(320),// Mobile S
   custom: mediaQuery,
 };
 

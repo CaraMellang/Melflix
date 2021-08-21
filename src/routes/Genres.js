@@ -81,18 +81,18 @@ const Genres = () => {
             <div className="movies">
               {movieList.map((data) => (
                 <div className="movie-item">
-                    <Movie
-                      key={data.id}
-                      id={data.id}
-                      title={data.title}
-                      year={data.year}
-                      genres={data.genres}
-                      rating={data.rating}
-                      summary={data.summary}
-                      poster={data.large_cover_image}
-                      description={data.description_full}
-                      runtime={data.runtime}
-                    />
+                  <Movie
+                    key={data.id}
+                    id={data.id}
+                    title={data.title}
+                    year={data.year}
+                    genres={data.genres}
+                    rating={data.rating}
+                    summary={data.summary}
+                    poster={data.large_cover_image}
+                    description={data.description_full}
+                    runtime={data.runtime}
+                  />
                 </div>
               ))}
             </div>
@@ -146,13 +146,19 @@ const Wrapper = styled.div`
     background-color: #cc8330;
   }
 
-  ${media.xxlarge} {
+  ${media.xlarge} {
+    .movie-item {
+      margin: 1.25rem 2rem;
+      width: calc((100% - 16rem) / 6);
+    }
+  }
+  ${media.large} {
     .movie-item {
       margin: 1.25rem 2rem;
       width: calc((100% - 16rem) / 4);
     }
   }
-
+  
   ${media.medium} {
     .sidebar {
       display: flex;
@@ -177,11 +183,29 @@ const Wrapper = styled.div`
       margin-left: 0;
     }
     .movies {
-      padding-left: 2.5%;
-      padding-right: 2.5%;
-      gap: 2.5rem;
+      /* padding-left: 2.5%;
+      padding-right: 2.5%; */
+      padding-left: 0;
+      padding-right: 0;
+      gap: 2rem;
     }
+    
+    .movie-item {
+      margin: 1.25rem 2rem;
+      width: calc((100% - 5.5rem) / 4);
+    }
+  }
     ${media.small} {
+      .movies {
+        gap: 1.5rem;
+      }
+      
+      .movie-item {
+      margin: 1.25rem 2rem;
+      width: calc((100% - 1rem) / 3);
+    }
+
+    ${media.xsmall} {
       .sidebar-mobile-tagmenu {
         display: flex;
         justify-content: space-between;
@@ -191,10 +215,15 @@ const Wrapper = styled.div`
         align-items: center;
       }
       .movies {
-        gap: 2rem;
+        gap: 0.45rem;
       }
+      
+      .movie-item {
+      margin: 1.25rem 2rem;
+      width: calc((100% - 1rem) / 3);
     }
-    ${media.xsmall} {
+    }
+    ${media.xxsmall} {
       .sidebar-mobile-tagmenu {
         display: flex;
         justify-content: space-between;
@@ -208,8 +237,12 @@ const Wrapper = styled.div`
         padding-right: 2%;
         gap: 5px;
       }
+      .movie-item {
+      margin: 1.25rem 2rem;
+      width: 100%;
     }
-  }
+    }
+  
 `;
 
 export default React.memo(Genres);
