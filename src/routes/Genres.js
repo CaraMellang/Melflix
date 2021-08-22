@@ -7,12 +7,15 @@ import "./Home.css";
 import media from "../lib/media";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHamburger } from "@fortawesome/free-solid-svg-icons";
+import Pagination from "../components/Pagination";
 
 const Genres = () => {
   const [movieList, setMovieList] = useState([]);
   const [genresName, setGenresName] = useState("all");
   const [loading, setLoading] = useState(true);
   const [activeId, setActiveId] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(10);
 
   const onClick = (e) => {
     // console.log(e.target.attributes.getNamedItem("name").value);
@@ -46,6 +49,7 @@ const Genres = () => {
       console.log("취소됨.");
     };
   }, [genresName]);
+
   return (
     <Wrapper>
       <div className="sidebar">
@@ -96,6 +100,7 @@ const Genres = () => {
               ))}
             </div>
           )}
+          <Pagination />
         </div>
       </div>
     </Wrapper>
@@ -103,6 +108,11 @@ const Genres = () => {
 };
 
 const Wrapper = styled.div`
+  .pagination {
+    display: block;
+    text-decoration: none;
+  }
+
   .sidebar {
     position: fixed;
     background-color: #242424;
