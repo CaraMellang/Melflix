@@ -4,7 +4,6 @@ import styled from "styled-components";
 import Movie from "../components/Movie";
 import GenreList from "../lib/GenreList";
 import "./Home.css";
-import "./Genres.css";
 import media from "../lib/media";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHamburger } from "@fortawesome/free-solid-svg-icons";
@@ -34,7 +33,7 @@ const Genres = () => {
       return;
     }
     const genresData = await axios.get(
-      `https://yts-proxy.now.sh/list_movies.json?genre=${genresName}&limit=10`
+      `https://yts-proxy.now.sh/list_movies.json?genre=${genresName}&page=1`
     );
     console.log(genresData.data.data.movies);
     setMovieList(genresData.data.data.movies);
@@ -158,7 +157,7 @@ const Wrapper = styled.div`
       width: calc((100% - 16rem) / 4);
     }
   }
-  
+
   ${media.medium} {
     .sidebar {
       display: flex;
@@ -189,18 +188,18 @@ const Wrapper = styled.div`
       padding-right: 0;
       gap: 2rem;
     }
-    
+
     .movie-item {
       margin: 1.25rem 2rem;
       width: calc((100% - 5.5rem) / 4);
     }
   }
-    ${media.small} {
-      .movies {
-        gap: 1.5rem;
-      }
-      
-      .movie-item {
+  ${media.small} {
+    .movies {
+      gap: 1.5rem;
+    }
+
+    .movie-item {
       margin: 1.25rem 2rem;
       width: calc((100% - 1rem) / 3);
     }
@@ -217,11 +216,11 @@ const Wrapper = styled.div`
       .movies {
         gap: 0.45rem;
       }
-      
+
       .movie-item {
-      margin: 1.25rem 2rem;
-      width: calc((100% - 1rem) / 3);
-    }
+        margin: 1.25rem 2rem;
+        width: calc((100% - 1rem) / 3);
+      }
     }
     ${media.xxsmall} {
       .sidebar-mobile-tagmenu {
@@ -238,11 +237,11 @@ const Wrapper = styled.div`
         gap: 5px;
       }
       .movie-item {
-      margin: 1.25rem 2rem;
-      width: 100%;
+        margin: 1.25rem 2rem;
+        width: 100%;
+      }
     }
-    }
-  
+  }
 `;
 
 export default React.memo(Genres);
