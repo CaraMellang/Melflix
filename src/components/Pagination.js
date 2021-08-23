@@ -27,18 +27,24 @@ const Pagination = ({
   return (
     <UlWrapper>
       <Ul>
-        {pages[0] !== 1 && <button onClick={onPrevClick}>{"<"}</button>}
+        {pages[0] !== 1 && (
+          <button onClick={onPrevClick} className="ul-button">
+            {"<"}
+          </button>
+        )}
         {pages.map((item, index) => (
           <button
             key={index}
             id={item}
             onClick={onClick}
-            className={` ${activeId === item && "p-actives"}`}
+            className={`ul-items ${activeId === item && "p-actives"}`}
           >
             {item}
           </button>
         ))}
-        <button onClick={onNextClick}>{">"}</button>
+        <button onClick={onNextClick} className="ul-button">
+          {">"}
+        </button>
       </Ul>
     </UlWrapper>
   );
@@ -56,14 +62,26 @@ const Ul = styled.ul`
   padding: 0;
   margin-right: 10rem;
   width: fit-content;
-  border: 1px solid white;
-  border-radius: 10px;
-  li {
-    padding: 8px;
+
+  .ul-button {
+    cursor: pointer;
+    background-color: #cac6bd;
+    border: none;
+    border: 1px solid #cac6bd;
+    color: #181818;
+  }
+
+  .ul-items {
+    cursor: pointer;
+    background-color: #181818;
+    border: none;
+    border: 1px solid #cac6bd;
+    color: #cac6bd;
   }
 
   .p-actives {
-    background-color: #cc8330;
+    background-color: #cac6bd;
+    color: #181818;
   }
 `;
 
