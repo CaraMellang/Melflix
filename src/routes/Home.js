@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Movie from "../components/Movie";
 import Navigation from "../components/Navigation";
-import SignIn from "../components/SIgnIn";
-import SignUp from "../components/SignUp";
 import media from "../lib/media";
 import "./Home.css";
 

@@ -31,12 +31,12 @@ const Genres = () => {
     //컴포넌트가 리렌더링되어 렌더링이 끝나지 않을 때 null값을 반환하는 이슈가 있음 <- 정확하지않음
   };
 
-  const getData = async (genresName) => {
+  const getData = async (genresName, currentPage) => {
     if (genresName === null) {
       return;
     }
     const genresData = await axios.get(
-      `https://yts-proxy.now.sh/list_movies.json?genre=${genresName}&page=1`
+      `https://yts-proxy.now.sh/list_movies.json?genre=${genresName}&page=${currentPage}`
     );
     console.log(genresData.data.data.movies);
     setMovieList(genresData.data.data.movies);
@@ -44,11 +44,11 @@ const Genres = () => {
   };
 
   useEffect(() => {
-    getData(genresName);
+    getData(genresName, currentPage);
     return () => {
       console.log("취소됨.");
     };
-  }, [genresName]);
+  }, [genresName, currentPage]);
 
   return (
     <Wrapper>
@@ -100,7 +100,12 @@ const Genres = () => {
               ))}
             </div>
           )}
-          <Pagination />
+          <Pagination
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            postsPerPage={postsPerPage}
+            setPostsPerPage={setPostsPerPage}
+          />
         </div>
       </div>
     </Wrapper>
