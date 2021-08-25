@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   padding: 30px;
-  padding-top: 70px;
+  padding-top: 0;
   color: white;
 }
 .movies a {
@@ -12,5 +12,4 @@
   text-decoration: none;
 }
 .movie-item {
-  
 }

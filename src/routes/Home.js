@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Movie from "../components/Movie";
-import Navigation from "../components/Navigation";
 import Pagination from "../components/Pagination";
 import media from "../lib/media";
 import "./Home.css";
@@ -34,6 +33,7 @@ const Home = () => {
         <span style={{ color: "white" }}>로딩중...</span>
       ) : (
         <div className="hi">
+          <div className="top-rated">Top Rated</div>
           <div className="movies">
             {movieList.map((data) => (
               <div className="movie-item">
@@ -65,6 +65,16 @@ const Home = () => {
 };
 
 const Wrapper = styled.div`
+  .movies {
+    padding-top: 0;
+  }
+  .top-rated {
+    color: white;
+    font-weight: bold;
+    border-bottom: 1px solid white;
+    padding-top: 4.5rem;
+    padding-bottom: 0.25rem;
+  }
   ${media.xlarge} {
     .movie-item {
       margin: 1.25rem 2rem;
@@ -79,7 +89,6 @@ const Wrapper = styled.div`
   }
 
   ${media.medium} {
-    
     .movies {
       /* padding-left: 2.5%;
       padding-right: 2.5%; */

@@ -34,6 +34,7 @@ const Rating = () => {
         <span style={{ color: "white" }}>로딩중...</span>
       ) : (
         <div className="hi">
+          <div className="top-rated">Top Rated</div>
           <div className="movies">
             {movieList.map((data) => (
               <div className="movie-item">
@@ -64,13 +65,28 @@ const Rating = () => {
   );
 };
 const Wrapper = styled.div`
+  .top-rated {
+    color: white;
+    font-weight: bold;
+    border-bottom: 1px solid white;
+    padding-top: 4.5rem;
+    padding-bottom: 0.25rem;
+  }
   ${media.xlarge} {
+    .top-rated {
+      margin-left: 3rem;
+      width: 93%;
+    }
     .movie-item {
       margin: 1.25rem 2rem;
       width: calc((100% - 20rem) / 5);
     }
   }
   ${media.large} {
+    .top-rated {
+      margin-left: 3rem;
+      width: 93%;
+    }
     .movie-item {
       margin: 1.25rem 2rem;
       width: calc((100% - 16rem) / 4);
@@ -78,6 +94,10 @@ const Wrapper = styled.div`
   }
 
   ${media.medium} {
+    .top-rated {
+      margin-left: 1.5rem;
+      width: 94%;
+    }
     .movies {
       /* padding-left: 2.5%;
     padding-right: 2.5%; */
@@ -92,6 +112,10 @@ const Wrapper = styled.div`
     }
   }
   ${media.small} {
+    .top-rated {
+      margin-left: 1.5rem;
+      width: 90%;
+    }
     .movies {
       gap: 1.5rem;
     }
@@ -102,6 +126,10 @@ const Wrapper = styled.div`
     }
 
     ${media.xsmall} {
+      .top-rated {
+        margin-left: 1.5rem;
+        width: 90%;
+      }
       .sidebar-mobile-tagmenu {
         display: flex;
         justify-content: space-between;
@@ -120,6 +148,10 @@ const Wrapper = styled.div`
       }
     }
     ${media.xxsmall} {
+      .top-rated {
+        margin-left: 1.5rem;
+        width: 86%;
+      }
       .sidebar-mobile-tagmenu {
         display: flex;
         justify-content: space-between;

@@ -77,18 +77,19 @@ const Detail = (props) => {
           </div>
         </section>
         <section className="content">
-          <div className="content-description">
-            <h1
-              style={{
-                borderBottom: "1px solid black",
-                paddingBottom: "0.5rem",
-              }}
-            >
-              Description
-            </h1>
+          <div className="content-wrap">
+            <div className="content-description">
+              <h1
+                style={{
+                  borderBottom: "1px solid black",
+                  paddingBottom: "0.5rem",
+                }}
+              >
+                Description
+              </h1>
+            </div>
+            <p>{state.description === "" ? "none" : state.description}</p>
           </div>
-          <p>{state.description === "" ? "none" : state.description}</p>
-          <p>{state.summary}</p>
         </section>
       </Main>
     </>
@@ -99,7 +100,6 @@ const Main = styled.div`
   flex-direction: column;
   color: white;
   align-items: center;
-  height: 100%;
   .header-block {
     padding-top: 6em;
     padding-bottom: 3em;
@@ -108,7 +108,7 @@ const Main = styled.div`
   .header-contents {
     display: flex;
     margin: 0 auto;
-    width: 1184px;
+    padding-left: 10rem;
     background-color: #181818;
   }
   .above-title {
@@ -121,7 +121,7 @@ const Main = styled.div`
   .header-contents-details {
     display: flex;
     flex-direction: column;
-    flex: 1 1 0%;
+    width: 50%;
     justify-content: space-between;
     margin-left: 6rem;
     padding-bottom: 3rem;
@@ -143,11 +143,15 @@ const Main = styled.div`
     background-color: #9e9e9e;
     color: #181818;
     font-weight: bold;
-    padding: 5rem;
     padding-top: 0;
   }
   .content-description {
-    padding-top: 3rem;
+    padding-top: 1.5rem;
+  }
+  .content-wrap {
+    padding-right: 2rem;
+    padding-left: 2rem;
+    padding-bottom: 10rem;
   }
   .header-details-Below {
     font-size: 1.5rem;
@@ -160,25 +164,119 @@ const Main = styled.div`
     border: 1px solid none;
     border-radius: 5px;
   }
+  ${media.xlarge} {
+    .header-block {
+      width: 1440px;
+    }
+    .content {
+      width: 1440px;
+    }
+    .header-contents {
+      padding-left: 10rem;
+    }
+  }
+  ${media.large} {
+    .header-block {
+      width: 1024px;
+    }
+    .header-contents {
+      padding-left: 5rem;
+    }
+    .content {
+      width: 1024px;
+    }
+    .poster-img {
+      width: 20rem;
+    }
+  }
+  ${media.medium} {
+    .header-block {
+      width: 768px;
+    }
+    .header-contents {
+      padding-left: 2rem;
+    }
+    .content {
+      width: 768px;
+    }
+    .header-contents-details {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      justify-content: space-between;
+      margin-left: 2rem;
+      padding-bottom: 3rem;
+    }
+  }
 
   ${media.small} {
     flex-direction: column;
     width: 100%;
     align-items: center;
-    .content {
-      padding: 2rem;
+    .header-block {
+      width: 425px;
     }
-
     .header-contents {
+      padding-left: 0;
       display: flex;
       flex-direction: column;
-      align-items: center;
       width: 100%;
     }
+    .content {
+      width: 425px;
+    }
+    .thumnail-block {
+      display: flex;
+      justify-content: center;
+    }
+
     .header-contents-details {
       display: flex;
+      width: 80%;
       flex-direction: column;
-      flex: 1 1 0%;
+      justify-content: space-between;
+      margin-left: 4rem;
+      padding-bottom: 1rem;
+    }
+
+    
+    .above-title {
+      margin-top: 2rem;
+      margin-right: 0.5rem;
+      font-size: 1.75rem;
+    }
+    .header-year-genres {
+      font-size: 1.25rem;
+    }
+    .header-details-Below {
+      font-size: 1.25rem;
+    }
+    .content-description {
+      padding-top: 0.5rem;
+    }
+  }
+  ${media.xsmall} {
+    .header-block {
+      width: 375px;
+    }
+    .header-contents {
+      padding-left: 0;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    .content {
+      width: 375px;
+    }
+    .thumnail-block {
+      display: flex;
+      justify-content: center;
+    }
+
+    .header-contents-details {
+      display: flex;
+      width: 80%;
+      flex-direction: column;
       justify-content: space-between;
       margin-left: 2rem;
       padding-bottom: 1rem;
@@ -187,6 +285,55 @@ const Main = styled.div`
     .above-title {
       margin-top: 2rem;
       margin-right: 0.5rem;
+      font-size: 1.75rem;
+    }
+    .header-year-genres {
+      font-size: 1.25rem;
+    }
+    .header-details-Below {
+      font-size: 1.25rem;
+    }
+    .content-description {
+      padding-top: 0.5rem;
+    }
+  }
+  ${media.xxsmall} {
+    .header-block {
+      width: 320px;
+    }
+    .header-contents {
+      padding-left: 0;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    .content {
+      width: 320px;
+    }
+    .thumnail-block {
+      display: flex;
+      justify-content: center;
+    }
+
+    .header-contents-details {
+      display: flex;
+      width: 80%;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: 2rem;
+      padding-bottom: 1rem;
+    }
+
+    .above-title {
+      margin-top: 2rem;
+      margin-right: 0.5rem;
+      font-size: 1.75rem;
+    }
+    .header-year-genres {
+      font-size: 1.25rem;
+    }
+    .header-details-Below {
+      font-size: 1.25rem;
     }
     .content-description {
       padding-top: 0.5rem;

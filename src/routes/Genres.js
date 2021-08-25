@@ -88,6 +88,7 @@ const Genres = () => {
       </div>
       <div className="container">
         <div className="hi">
+          <div className="top-rated">Top Rated</div>
           {loading === true ? (
             ""
           ) : (
@@ -123,18 +124,23 @@ const Genres = () => {
 };
 
 const Wrapper = styled.div`
+  .top-rated {
+    color: white;
+    font-weight: bold;
+    border-bottom: 1px solid white;
+    padding-top: 4.5rem;
+    padding-bottom: 0.25rem;
+  }
   .sidebar {
     position: fixed;
     width: 100%;
     height: 1.5rem;
-    background-color: #242424;
     margin-top: 3.5rem;
-    border: 1px solid #242424;
-    border-radius: 0 0 5px 5px;
-    z-index: 4;
   }
   .sidebar-mobile-tagmenu {
-    display: none;
+    background-color: #242424;
+    border: 1px solid #242424;
+    z-index: 4;
   }
 
   .sidebar-tag {
@@ -172,12 +178,26 @@ const Wrapper = styled.div`
   }
 
   ${media.xlarge} {
+    .top-rated {
+      margin-left: 3rem;
+      width: 86%;
+    }
+    .sidebar-mobile-tagmenu {
+      display: none;
+    }
     .movie-item {
       margin: 1.25rem 2rem;
       width: calc((100% - 16rem) / 6);
     }
   }
   ${media.large} {
+    .top-rated {
+      margin-left: 3rem;
+      width: 89%;
+    }
+    .sidebar-mobile-tagmenu {
+      display: none;
+    }
     .movie-item {
       margin: 1.25rem 2rem;
       width: calc((100% - 16rem) / 4);
@@ -185,6 +205,11 @@ const Wrapper = styled.div`
   }
 
   ${media.medium} {
+    .top-rated {
+      padding-top: 5.5rem;
+      margin-left: 1.5rem;
+      width: 94%;
+    }
     .sidebar {
       display: flex;
       flex-direction: column;
@@ -229,6 +254,11 @@ const Wrapper = styled.div`
     }
   }
   ${media.small} {
+    .top-rated {
+      padding-top: 5.5rem;
+      margin-left: 1.5rem;
+      width: 90%;
+    }
     .movies {
       gap: 1.5rem;
     }
@@ -247,6 +277,11 @@ const Wrapper = styled.div`
     }
 
     ${media.xsmall} {
+      .top-rated {
+        padding-top: 5.5rem;
+        margin-left: 1.5rem;
+        width: 90%;
+      }
       .sidebar-mobile-tagmenu {
         display: flex;
         justify-content: space-between;
@@ -273,6 +308,11 @@ const Wrapper = styled.div`
       }
     }
     ${media.xxsmall} {
+      .top-rated {
+        padding-top: 5.5rem;
+        margin-left: 1.5rem;
+        width: 85%;
+      }
       .sidebar-mobile-tagmenu {
         display: flex;
         justify-content: space-between;
