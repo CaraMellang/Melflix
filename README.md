@@ -1,7 +1,6 @@
-# Getting Started with Create React App
+# Melflix : https://caramellang.github.io/Melflix/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-https://caramellang.github.io/Melflix/
+<!-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). -->
 
 <!-- ## Available Scripts
 
