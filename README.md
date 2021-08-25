@@ -1,6 +1,6 @@
 # Melflix : https://caramellang.github.io/Melflix/
 
-yts의 open API로 만들었습니다.
+yts의 open API로 만든 반응형 사이트입니다.
 
 ![image](https://user-images.githubusercontent.com/51808985/130768522-e7e82f72-c91f-4d6e-81bc-f7d8b3937509.png)
 
