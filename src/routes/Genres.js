@@ -6,7 +6,7 @@ import GenreList from "../lib/GenreList";
 import "./Home.css";
 import media from "../lib/media";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHamburger } from "@fortawesome/free-solid-svg-icons";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 import Pagination from "../components/Pagination";
 
 const Genres = () => {
@@ -16,6 +16,7 @@ const Genres = () => {
   const [activeId, setActiveId] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);
+  const [toggle, setToggle] = useState(false);
 
   const onClick = (e) => {
     // console.log(e.target.attributes.getNamedItem("name").value);
@@ -29,6 +30,11 @@ const Genres = () => {
     // setGenresName(e.target.getAttribute("name"));
     // console.log(e.target.getAttribute("name"));
     //컴포넌트가 리렌더링되어 렌더링이 끝나지 않을 때 null값을 반환하는 이슈가 있음 <- 정확하지않음
+  };
+
+  const onClickToggle = () => {
+    setToggle((prev) => !prev);
+    console.log("토글!", toggle);
   };
 
   const getData = async (genresName, currentPage) => {
@@ -56,10 +62,14 @@ const Genres = () => {
         <div className="sidebar-mobile-tagmenu">
           <div className="sidebar-mobile-name">태그</div>
           <div className="sidebar-mobile-hamburger">
-            <FontAwesomeIcon icon={faHamburger} />
+            <FontAwesomeIcon icon={faBars} onClick={onClickToggle} />
           </div>
         </div>
-        <div className="sidebar-tag">
+        <div
+          className={`sidebar-tag ${
+            toggle === true ? "show-tag-menu" : "hide-tag-menu"
+          }`}
+        >
           {GenreList.map((item, index) => {
             return (
               <button
@@ -113,17 +123,15 @@ const Genres = () => {
 };
 
 const Wrapper = styled.div`
-  .pagination {
-    display: block;
-    text-decoration: none;
-  }
-
   .sidebar {
     position: fixed;
+    width: 100%;
+    height: 1.5rem;
     background-color: #242424;
     margin-top: 3.5rem;
     border: 1px solid #242424;
     border-radius: 0 0 5px 5px;
+    z-index: 4;
   }
   .sidebar-mobile-tagmenu {
     display: none;
@@ -133,10 +141,13 @@ const Wrapper = styled.div`
     display: flex;
     text-align: start;
     flex-direction: column;
+    z-index: 1;
   }
   .tag-box {
     width: 10rem;
-    height: 3.5rem;
+    /* height: calc(100% / 7); */
+
+    height: 2rem;
     font-weight: 1000;
     background-color: #3d3d3d;
     border: 1px solid #3d3d3d;
@@ -190,6 +201,14 @@ const Wrapper = styled.div`
       flex-direction: row;
       flex-wrap: wrap;
     }
+    .hide-tag-menu {
+      transition: transform 0.5s ease-in;
+      transform: translateY(-16rem);
+    }
+    .show-tag-menu {
+      transition: transform 0.5s;
+      transform: translateY(0rem);
+    }
     .tag-box {
       width: 50%;
     }
@@ -218,6 +237,14 @@ const Wrapper = styled.div`
       margin: 1.25rem 2rem;
       width: calc((100% - 1rem) / 3);
     }
+    .hide-tag-menu {
+      transition: transform 0.5s ease-in;
+      transform: translateY(-16rem);
+    }
+    .show-tag-menu {
+      transition: transform 0.5s;
+      transform: translateY(0rem);
+    }
 
     ${media.xsmall} {
       .sidebar-mobile-tagmenu {
@@ -227,6 +254,14 @@ const Wrapper = styled.div`
         padding-right: 1rem;
         height: 2rem;
         align-items: center;
+      }
+      .hide-tag-menu {
+        transition: transform 0.5s ease-in;
+        transform: translateY(-16rem);
+      }
+      .show-tag-menu {
+        transition: transform 0.5s;
+        transform: translateY(0rem);
       }
       .movies {
         gap: 0.45rem;
@@ -245,6 +280,14 @@ const Wrapper = styled.div`
         padding-right: 1rem;
         height: 2rem;
         align-items: center;
+      }
+      .hide-tag-menu {
+        transition: transform 0.5s ease-in;
+        transform: translateY(-16rem);
+      }
+      .show-tag-menu {
+        transition: transform 0.5s;
+        transform: translateY(0rem);
       }
       .movies {
         padding-left: 2%;

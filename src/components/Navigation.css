@@ -3,6 +3,7 @@
   position: fixed;
   width: 100%;
   background-color: black;
+  z-index: 5;
 }
 
 .navbar-menu {

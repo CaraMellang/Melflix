@@ -23,7 +23,7 @@ function App() {
 
 const GlobalStyled = createGlobalStyle`
 html , body , #root{
-  height:100%;
+  /* height:100%; */
   background: #181818;
   /* #121212 */
   font-family:'Roboto';

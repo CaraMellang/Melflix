@@ -3,16 +3,19 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Movie from "../components/Movie";
 import Navigation from "../components/Navigation";
+import Pagination from "../components/Pagination";
 import media from "../lib/media";
 import "./Home.css";
 
 const Rating = () => {
   const [movieList, setMovieList] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(10);
 
-  const getData = async () => {
+  const getData = async (currentPage) => {
     const data = await axios.get(
-      "https://yts-proxy.now.sh/list_movies.json?sort_by=rating&limit=30"
+      `https://yts-proxy.now.sh/list_movies.json?sort_by=rating&page=${currentPage}`
     );
     console.log(data.data.data.movies);
     setMovieList(data.data.data.movies);
@@ -20,11 +23,11 @@ const Rating = () => {
   };
 
   useEffect(() => {
-    getData();
+    getData(currentPage);
     return () => {
       console.log("취소됨.");
     };
-  }, []);
+  }, [currentPage]);
   return (
     <Wrapper>
       {loading === true ? (
@@ -49,6 +52,12 @@ const Rating = () => {
               </div>
             ))}
           </div>
+          <Pagination
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            postsPerPage={postsPerPage}
+            setPostsPerPage={setPostsPerPage}
+          />
         </div>
       )}
     </Wrapper>

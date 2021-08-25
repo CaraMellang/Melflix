@@ -65,7 +65,7 @@ const Wraper = styled(Link)`
     margin: 0;
   }
   img {
-    max-width: 100%; 
+    max-width: 100%;
     border: 1px solid none;
     border-radius: 5px;
   }

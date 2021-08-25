@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import media from "../lib/media";
 
 const Pagination = ({
   currentPage,
@@ -7,7 +8,7 @@ const Pagination = ({
   postsPerPage,
   setPostsPerPage,
 }) => {
-  const [pages, setPages] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  const [pages, setPages] = useState([1, 2, 3, 4, 5]);
   const [activeId, setActiveId] = useState(1);
   const onClick = (e) => {
     console.log("페이지네이션");
@@ -17,11 +18,11 @@ const Pagination = ({
 
   const onPrevClick = () => {
     console.log("prevClick");
-    setPages(pages.map((item) => item - 10));
+    setPages(pages.map((item) => item - 5));
   };
   const onNextClick = () => {
     console.log("nextClick");
-    setPages(pages.map((item) => item + 10));
+    setPages(pages.map((item) => item + 5));
   };
 
   return (
@@ -53,16 +54,14 @@ const Pagination = ({
 const UlWrapper = styled.div`
   display: flex;
 
-  justify-content: flex-end;
+  justify-content: center;
 `;
 
 const Ul = styled.ul`
   display: flex;
   list-style: none;
   padding: 0;
-  margin-right: 10rem;
   width: fit-content;
-
   .ul-button {
     cursor: pointer;
     background-color: #cac6bd;
@@ -73,6 +72,7 @@ const Ul = styled.ul`
 
   .ul-items {
     cursor: pointer;
+    width: 30px;
     background-color: #181818;
     border: none;
     border: 1px solid #cac6bd;
@@ -82,6 +82,22 @@ const Ul = styled.ul`
   .p-actives {
     background-color: #cac6bd;
     color: #181818;
+  }
+
+  ${media.medium} {
+    margin-right: 0;
+  }
+
+  ${media.small} {
+    margin-right: 0;
+  }
+
+  ${media.xsmall} {
+    margin-right: 0;
+  }
+
+  ${media.xxsmall} {
+    margin-right: 0;
   }
 `;
 

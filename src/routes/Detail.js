@@ -54,7 +54,7 @@ const Detail = (props) => {
                     className="header-runtime-total"
                     style={{ paddingLeft: "1rem", paddingBottom: "0.5rem" }}
                   >
-                    {state.runtime} Hours
+                    {state.runtime === 0 ? "none" : `${state.runtime} Hours`}
                   </div>
                 </div>
                 <div className="header-details-average">
@@ -87,7 +87,7 @@ const Detail = (props) => {
               Description
             </h1>
           </div>
-          <p>{state.description}</p>
+          <p>{state.description === "" ? "none" : state.description}</p>
           <p>{state.summary}</p>
         </section>
       </Main>

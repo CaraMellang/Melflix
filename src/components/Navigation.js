@@ -79,26 +79,6 @@ const NavbarItems = styled(NavLink)`
   }
 `;
 
-export const Navbarsexy = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  background-color: #263343;
-  text-decoration: none;
-  padding: 8px 12px;
-  margin: 0px;
-  .nav-logo {
-    flex: 2.5 1 auto;
-  }
-
-  ${media.small} {
-    flex-direction: column;
-
-    .nav-logo {
-      align-items: flex-start;
-      width: fit-content;
-    }
-  }
-`;
 
 export const NavItemMenu = styled.div`
   display: flex;
