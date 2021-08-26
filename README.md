@@ -1,8 +1,13 @@
-# Getting Started with Create React App
+# Melflix : https://caramellang.github.io/Melflix/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+yts의 open API로 만든 반응형 사이트입니다.
 
-## Available Scripts
+![image](https://user-images.githubusercontent.com/51808985/130768522-e7e82f72-c91f-4d6e-81bc-f7d8b3937509.png)
+
+
+<!-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). -->
+
+<!-- ## Available Scripts
 
 In the project directory, you can run:
 
@@ -67,4 +72,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `yarn build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
