@@ -72,6 +72,15 @@ const Wrapper = styled.div`
     padding-top: 4.5rem;
     padding-bottom: 0.25rem;
   }
+  .top-rated {
+    margin-left: 3rem;
+    width: 95%;
+  }
+
+  .movie-item {
+    margin: 1.25rem 2rem;
+    width: calc((100% - 10.3rem) / 7);
+  }
   ${media.xlarge} {
     .top-rated {
       margin-left: 3rem;

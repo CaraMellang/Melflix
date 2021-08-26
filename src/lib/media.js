@@ -1,7 +1,8 @@
 export const mediaQuery = (maxWidth) => `@media(max-width: ${maxWidth}px)`;
 
 const media = {
-  xlarge: mediaQuery(1440),// Laptop L
+  xxlarge: mediaQuery(1920),// Laptop L
+  xlarge: mediaQuery(1440),// Laptop M
   large: mediaQuery(1024),// laptop
   medium: mediaQuery(768),// Tablet
   small: mediaQuery(425),// Mobile L

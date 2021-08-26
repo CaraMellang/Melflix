@@ -103,6 +103,7 @@ const Main = styled.div`
   .header-block {
     padding-top: 6em;
     padding-bottom: 3em;
+    width: 95%;
   }
 
   .header-contents {
@@ -121,7 +122,7 @@ const Main = styled.div`
   .header-contents-details {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width:65%;
     justify-content: space-between;
     margin-left: 6rem;
     padding-bottom: 3rem;

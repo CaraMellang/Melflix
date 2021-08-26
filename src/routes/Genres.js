@@ -88,7 +88,7 @@ const Genres = () => {
       </div>
       <div className="container">
         <div className="hi">
-          <div className="top-rated">Top Rated</div>
+          <div className="top-rated">{genresName.toUpperCase()}</div>
           {loading === true ? (
             ""
           ) : (
@@ -141,6 +141,7 @@ const Wrapper = styled.div`
     background-color: #242424;
     border: 1px solid #242424;
     z-index: 4;
+    display: none;
   }
 
   .sidebar-tag {
@@ -167,6 +168,15 @@ const Wrapper = styled.div`
 
   .tag-box-contents {
     padding-left: 2rem;
+  }
+  .top-rated {
+    margin-left: 3rem;
+    width: 95%;
+  }
+
+  .movie-item {
+    margin: 1.25rem 2rem;
+    width: calc((100% - 10.3rem) / 7);
   }
 
   .hi {
@@ -227,11 +237,17 @@ const Wrapper = styled.div`
       flex-wrap: wrap;
     }
     .hide-tag-menu {
-      transition: transform 0.5s ease-in;
+      opacity: 0;
+      height: 0;
+      transition-property: height, opacity;
+      transition: 0.5s ease-in;
       transform: translateY(-16rem);
     }
     .show-tag-menu {
-      transition: transform 0.5s;
+      opacity: 1;
+      height: 224px;
+      transition-property: height, opacity;
+      transition: 0.5s ease-in;
       transform: translateY(0rem);
     }
     .tag-box {
