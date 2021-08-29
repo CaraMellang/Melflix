@@ -1,10 +1,9 @@
 import { BrowserRouter, Route } from "react-router-dom";
 import { createGlobalStyle } from "styled-components";
 import "./App.css";
-import Detail from "./routes/Detail";
-import Home from "./routes/Home";
-import Genres from "./routes/Genres";
-import Rating from "./routes/Rating";
+import Detail from "./pages/Detail";
+import Home from "./pages/Home";
+import Genres from "./pages/Genres";
 import Navigation from "./components/Navigation";
 
 function App() {
@@ -13,7 +12,7 @@ function App() {
       <GlobalStyled />
       <Navigation />
       <Route path="/" component={Home} exact={true} />
-      <Route path="/rating" component={Rating} />
+      <Route path="/rating" component={Home} />
       <Route path="/genres" component={Genres} />
       <Route path="/option" component={Home} />
       <Route path="/movie/:id" component={Detail} />
