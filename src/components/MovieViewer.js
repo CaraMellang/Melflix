@@ -1,100 +1,100 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
-import styled from "styled-components";
-import media from "../lib/media";
-import "./Detail.css";
-import { fas, faStar } from "@fortawesome/free-solid-svg-icons";
+import React from 'react';
+import styled from 'styled-components';
+import media from '../lib/media';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Detail = (props) => {
+function MovieViewer({ data }) {
   const {
-    location: { state },
-  } = props;
-  console.log(state);
+    title,
+    year,
+    genres,
+    rating,
+    large_cover_image,
+    description,
+    runtime,
+  } = data;
 
   return (
     <>
       <Main>
-        <section className="header-block">
-          <div className="header-contents">
-            <div className="thumnail-block">
-              <img
-                className="poster-img"
-                src={state.poster}
-                alt={state.title}
-              />
+        <section className='header-block'>
+          <div className='header-contents'>
+            <div className='thumnail-block'>
+              <img className='poster-img' src={large_cover_image} alt={title} />
             </div>
-            <div className="header-contents-details">
-              <div className="header-details-above">
-                <h1 className="above-title">
-                  {state.title} ({state.year})
+            <div className='header-contents-details'>
+              <div className='header-details-above'>
+                <h1 className='above-title'>
+                  {title} ({year})
                 </h1>
-                <div className="header-year-genres">
+                <div className='header-year-genres'>
                   <div>-Genres</div>
                   <div
-                    className="header-genres"
-                    style={{ paddingLeft: "1rem" }}
+                    className='header-genres'
+                    style={{ paddingLeft: '1rem' }}
                   >
-                    {state.genres.map((item, index) => (
+                    {genres.map((item, index) => (
                       <p key={index}>{item}</p>
                     ))}
                   </div>
                 </div>
               </div>
-              <div className="header-details-Below">
+              <div className='header-details-Below'>
                 <div
-                  className="header-runtime-block"
+                  className='header-runtime-block'
                   style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "0.5rem",
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.5rem',
                   }}
                 >
-                  <div className="header-runtime-title">-Total Runtime</div>
+                  <div className='header-runtime-title'>-Total Runtime</div>
                   <div
-                    className="header-runtime-total"
-                    style={{ paddingLeft: "1rem", paddingBottom: "0.5rem" }}
+                    className='header-runtime-total'
+                    style={{ paddingLeft: '1rem', paddingBottom: '0.5rem' }}
                   >
-                    {state.runtime === 0 ? "none" : `${state.runtime} Hours`}
+                    {runtime === 0 ? 'none' : `${runtime} Hours`}
                   </div>
                 </div>
-                <div className="header-details-average">
-                  <div style={{ marginBottom: "1rem" }}>-Rating</div>
+                <div className='header-details-average'>
+                  <div style={{ marginBottom: '1rem' }}>-Rating</div>
                   <div
                     style={{
-                      paddingLeft: "1rem",
+                      paddingLeft: '1rem',
                     }}
                   >
                     <FontAwesomeIcon
                       icon={faStar}
-                      style={{ color: "#f7cf1e" }}
+                      style={{ color: '#f7cf1e' }}
                     />
-                    {state.rating}
+                    {rating}
                   </div>
                 </div>
-                <div className="header-details-stars"></div>
+                <div className='header-details-stars'></div>
               </div>
             </div>
           </div>
         </section>
-        <section className="content">
-          <div className="content-wrap">
-            <div className="content-description">
+        <section className='content'>
+          <div className='content-wrap'>
+            <div className='content-description'>
               <h1
                 style={{
-                  borderBottom: "1px solid black",
-                  paddingBottom: "0.5rem",
+                  borderBottom: '1px solid black',
+                  paddingBottom: '0.5rem',
                 }}
               >
                 Description
               </h1>
             </div>
-            <p>{state.description === "" ? "none" : state.description}</p>
+            <p>{description === '' ? 'none' : description}</p>
           </div>
         </section>
       </Main>
     </>
   );
-};
+}
 const Main = styled.div`
   display: flex;
   flex-direction: column;
@@ -122,7 +122,7 @@ const Main = styled.div`
   .header-contents-details {
     display: flex;
     flex-direction: column;
-    width:65%;
+    width: 65%;
     justify-content: space-between;
     margin-left: 6rem;
     padding-bottom: 3rem;
@@ -240,7 +240,6 @@ const Main = styled.div`
       padding-bottom: 1rem;
     }
 
-    
     .above-title {
       margin-top: 2rem;
       margin-right: 0.5rem;
@@ -341,4 +340,5 @@ const Main = styled.div`
     }
   }
 `;
-export default Detail;
+
+export default MovieViewer;

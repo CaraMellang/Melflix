@@ -1,10 +1,8 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import media from "../lib/media";
 import "./Navigation.css";
-import { faCog } from "@fortawesome/free-solid-svg-icons";
 
 const Navigation = () => {
   const [sidebar, setSidebar] = useState(false);
