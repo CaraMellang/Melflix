@@ -14,7 +14,6 @@ function App() {
       <Route path="/" component={Home} exact={true} />
       <Route path="/rating" component={Home} />
       <Route path="/genres" component={Genres} />
-      <Route path="/option" component={Home} />
       <Route path="/movie/:id" component={Detail} />
     </BrowserRouter>
   );
