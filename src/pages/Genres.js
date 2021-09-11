@@ -72,7 +72,11 @@ const Genres = () => {
             태그
           </div>
           <div className="sidebar-mobile-hamburger">
-            <FontAwesomeIcon icon={faBars} onClick={onClickToggle} style={{ color: "white" }} />
+            <FontAwesomeIcon
+              icon={faBars}
+              onClick={onClickToggle}
+              style={{ color: "white" }}
+            />
           </div>
         </div>
         <div
@@ -144,6 +148,10 @@ const Wrapper = styled.div`
     padding-top: 4.5rem;
     padding-bottom: 0.25rem;
   }
+  .top-rated {
+    margin-left: 2rem;
+    width: 95%;
+  }
   .sidebar {
     position: fixed;
     width: 100%;
@@ -182,10 +190,6 @@ const Wrapper = styled.div`
   .tag-box-contents {
     padding-left: 2rem;
   }
-  .top-rated {
-    margin-left: 3rem;
-    width: 95%;
-  }
   .movies {
     display: flex;
     flex-wrap: wrap;
@@ -207,10 +211,10 @@ const Wrapper = styled.div`
   }
 
   ${media.xlarge} {
-    .top-rated {
+    /* .top-rated {
       margin-left: 3rem;
-      width: 86%;
-    }
+      width: 95%;
+    } */
     .sidebar-mobile-tagmenu {
       display: none;
     }
@@ -222,7 +226,7 @@ const Wrapper = styled.div`
   ${media.large} {
     .top-rated {
       margin-left: 3rem;
-      width: 89%;
+      width: 90%;
     }
     .sidebar-mobile-tagmenu {
       display: none;
@@ -240,7 +244,7 @@ const Wrapper = styled.div`
     .top-rated {
       padding-top: 5.5rem;
       margin-left: 1.5rem;
-      width: 94%;
+      width: 92%;
     }
     .sidebar {
       display: flex;
@@ -278,22 +282,10 @@ const Wrapper = styled.div`
     .hi {
       margin-left: 0;
     }
-    .movies {
-      /* padding-left: 2.5%;*/
-      /* padding-right: 2.5%;  */
-      /* padding-left: 0;
-      padding-right: 0;
-      gap: 2rem; */
-      justify-content: center;
-    }
 
     .movie-item-wrap {
-      width: 30%;
+      width: 33.3%;
     }
-    /* .movie-item {
-      margin: 1.25rem 2rem;
-      width: calc((100% - 5.5rem) / 4);
-    } */
   }
   ${media.small} {
     .top-rated {
@@ -301,20 +293,10 @@ const Wrapper = styled.div`
       margin-left: 1.5rem;
       width: 90%;
     }
-    /* .movies {
-      gap: 1.5rem;
-    } */
-    .movies {
-      justify-content: center;
-    }
     .movie-item-wrap {
-      width: 40%;
+      width: 50%;
     }
 
-    /* .movie-item {
-      margin: 1.25rem 2rem;
-      width: calc((100% - 1rem) / 3);
-    } */
     .hide-tag-menu {
       opacity: 0;
       height: 0;
@@ -358,17 +340,9 @@ const Wrapper = styled.div`
         transition: 0.1s ease-in;
         transform: translateY(0rem);
       }
-      .movies {
-        justify-content: center;
-      }
       .movie-item-wrap {
         width: 100%;
       }
-
-      /* .movie-item {
-        margin: 1.25rem 2rem;
-        width: calc((100% - 1rem) / 3);
-      } */
     }
     ${media.xxsmall} {
       .top-rated {
@@ -397,10 +371,6 @@ const Wrapper = styled.div`
         transition-property: height, opacity;
         transition: 0.1s ease-in;
         transform: translateY(0rem);
-      }
-
-      .movies {
-        justify-content: center;
       }
 
       .movie-item-wrap {
