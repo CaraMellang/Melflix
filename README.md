@@ -2,6 +2,19 @@
 
 yts의 open API로 만든 반응형 사이트입니다.
 
+##사용기술
+
+<p align='center'>
+    <img src="https://img.shields.io/badge/javascript-blue?logo=javascript"/>
+    <img src="https://img.shields.io/badge/React-v17.0.2-blue?logo=React"/>
+    <img src="https://img.shields.io/badge/styled components-v5.3.1-pink?logo=react">
+    <img src="https://img.shields.io/badge/axios-v0.21.1-blue?logo=axios">
+    <img src="https://img.shields.io/badge/react-router-dom-v5.2.0-blue?logo=react-router-dom">
+</p>
+
+##구현기능
+
+
 ![image](https://user-images.githubusercontent.com/51808985/130768522-e7e82f72-c91f-4d6e-81bc-f7d8b3937509.png)
 
 
