@@ -1,6 +1,4 @@
 
-![image](https://user-images.githubusercontent.com/51808985/130768522-e7e82f72-c91f-4d6e-81bc-f7d8b3937509.png)
-
 ## 프로젝트 소개
 
 yts의 open API로 만든 영화 목록을 출력하는 사이트
