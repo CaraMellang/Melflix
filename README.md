@@ -1,87 +1,94 @@
-# Melflix : https://caramellang.github.io/Melflix/
 
-yts의 open API로 만든 반응형 사이트입니다.
+![image](https://user-images.githubusercontent.com/51808985/130768522-e7e82f72-c91f-4d6e-81bc-f7d8b3937509.png)
 
-##사용기술
+## 프로젝트 소개
 
-<p align='center'>
+yts의 open API로 만든 영화 목록을 출력하는 사이트
+
+## 🌐프로젝트 링크
+
+https://caramellang.github.io/Melflix/
+
+## ⚙️개발 언어
+
+<div align='center'>
     <img src="https://img.shields.io/badge/javascript-blue?logo=javascript"/>
+</div>
+
+## ****💻****개발 스택
+
+- 프론트 
+<p align='center'>
     <img src="https://img.shields.io/badge/React-v17.0.2-blue?logo=React"/>
     <img src="https://img.shields.io/badge/styled components-v5.3.1-pink?logo=react">
     <img src="https://img.shields.io/badge/axios-v0.21.1-blue?logo=axios">
 </p>
 
-##구현기능
+## 배포
+
+Front
+
+- Github
+
+## ****⏱****개발기간
+
+2021.08.11 ~ 2021.08.26 (약 15일)
+
+## 프로젝트 기능
+
+- 최신순 페이지, 평점순 페이지 제공
+- 장르페이지에서 해당하는 장르별로 영화목록 제공
+- 페이지네이션으로 여러개의 영화정보를  확인가능
+- 반응형 사이트
+
+## 문제와 해결
+
+1. 카테고리 문제
+
+    -  div태그에 카테고리의 name을 주고 버튼으로 e.target.name으로 가져오려 했으나 비정상으로 
+
+        작동하였음(대개 null값)
+
+    - 스택오버플로우를 본 결과 본래 property 속성이 존재하지 않으면 getAttribute()로 가져와야
+
+      한다는것을 깨달음.
+
+1. 반응형 적용
+
+    - 대부분 width , padding 의 값을 지정할 떄 %를 사용하였습니다. 당시에는 boxsizing속성을 몰라
+
+      목록에서 아이템들의 배치가 부적합하게 되어 여백이 생기는 일이 있었습니다😂
+
+      하나하나 %를 조절해가며 배치해서 해결했습니다.
+
+1. width 문제
+
+    - 장르페이지의 카테고리가 고정 포지션으로 width 100%로 설정되어있어 제공된 영화목록
+
+       일부분이 클릭이 안되는 오류가 있었음
+
+    - 처음엔 깨닫지못하고 뒤늦게 깨달아 속성을 지움으로 해결
+
+## 추후 보완사항
+
+- detail 페이지에 잘못 적용된 반응형 개선
+
+## 프로젝트 아키텍쳐
+
+![image](https://user-images.githubusercontent.com/51808985/159149294-56049e2d-d4d1-4f7e-a57b-34593dc3705c.png)
 
 
-![image](https://user-images.githubusercontent.com/51808985/130768522-e7e82f72-c91f-4d6e-81bc-f7d8b3937509.png)
+## 사이트 화면
 
+### [신규순 화면]
+![image](https://user-images.githubusercontent.com/51808985/159149337-2d87658a-30f8-401e-9f84-8f5837e07980.png)
 
-<!-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). -->
+### [평점순 화면]
+![image](https://user-images.githubusercontent.com/51808985/159149357-5ed23559-6237-4591-a197-0068f2ecde7d.png)
 
-<!-- ## Available Scripts
+### [장르별 목록 화면]
+![image](https://user-images.githubusercontent.com/51808985/159149393-3528a7da-c44c-450d-b1e4-b73abd86c7d1.png)
 
-In the project directory, you can run:
+### [반응형 화면]
+![image](https://user-images.githubusercontent.com/51808985/159149309-b18825f4-0617-49b5-b236-cf65fc6ea1a9.png)
 
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
