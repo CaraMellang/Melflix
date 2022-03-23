@@ -90,3 +90,6 @@ Front
 ### [반응형 화면]
 ![image](https://user-images.githubusercontent.com/51808985/159149309-b18825f4-0617-49b5-b236-cf65fc6ea1a9.png)
 
+### [상세페이지]
+![image](https://user-images.githubusercontent.com/51808985/159665926-067948f7-5a27-4307-b2bc-eaf3c6fd87c3.png)
+
